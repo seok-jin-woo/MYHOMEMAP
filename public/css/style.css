@@ -1,0 +1,13 @@
+body {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+#navbar {
+    height: 50px;
+    width: 100%;
+    background: #262626;
+    color: white;
+    font-weight: bolder;
+    font-size: 25px;
+}

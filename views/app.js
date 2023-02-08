@@ -1,15 +1,15 @@
-const express = require("express") // express 모듈 로드
-const ejs = require("ejs") // ejs 모듈 로드
-const app = express() // app을 express로 로드
+const express = require("express") 
+const ejs = require("ejs")
+const app = express() 
 
 app.set("view engine", "ejs");
 app.use(express_static(__dirname +'/'));
 
 app.get("/", function(req,res){
-    console.log("test") // console 출력
+    console.log("test") 
     res.render("test", {});
 })
 
-app.listen(3000, function(){
-    console.log("localhost:3000 실행중");
+app.listen(3001, function(){
+    console.log("localhost:3001 실행중");
 })

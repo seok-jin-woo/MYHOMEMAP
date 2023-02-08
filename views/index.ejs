@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>전국 수소충전소 위치 AI 서비스</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">  
+    <title>로컬네비게이터 : HEY~ 툰즈!</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/public/css/style.css">   -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=qx8vtxqi8e"></script>
     
     <script>
@@ -16,151 +16,6 @@
   crossorigin="anonymous"</script>
 
   <script type="text/javascript" src="/dapi.kakao.com/v2/maps/sdk.js?appkey=49d23f8a155d4bc84474c474b1449b62&libraries=services"></script>
-
-<style>
-    body {
-    padding: 0px !important;
-    margin: 0px !important;
-}
-
-#navbar {
-    height: 50px;
-    width: 100%;
-    background: #00004B;
-    color: white;
-    font-weight: bolder;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#infoBox {
-    position: absolute;
-    top: 100px;
-    z-index: 1000;
-    background: white;
-    left: 20px;
-    padding: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    text-align: center;
-}
-
-#infoTitle {
-    font-size: 15px;
-    font-weight: bolder;
-}
-
-.marker {
-    border: 2px solid #005E75;
-    background: #0090B7;
-    opacity: 0.8;
-    width: 24px;
-    height: 24px;
-    border-radius: 35%;
-}
-
-.infowindow_wrap {
-    background: white;
-    padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.infowindow_title {
-    font-size: 15px;
-    font-weight: bolder;
-}
-
-.infowindow_content {
-    font-size: 13px;
-    font-weight: normal;
-}
-
-.infowindow_date {
-    font-size: 13px;
-    font-weight: normal;
-}
-
-#current {
-    position: absolute;
-    top: 188px;
-    z-index: 10000;
-    background: white;
-    left: 28px;
-    padding: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    text-align: center;
-    cursor: pointer;
-    font-weight: bolder;
-}
-
-.pulse {
-    display: block;
-    width: 22px;
-    height: 22px;
-    border-radius: 58%;
-    cursor: pointer;
-    box-shadow: 0 0 0 rgb(255, 0, 0);
-    animation: pulse 1.7s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);
-        -moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);
-    }
-
-    70% {
-        box-shadow: 0 0 0 20px rgba(284, 49, 44, 0);
-        -moz-box-shadow: 0 0 0 20px rgba(284, 49, 44, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
-        -moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
-    }
-    }
-
-
-    @-webkit-keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);
-        -moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);
-    }
-
-    70% {
-        box-shadow: 0 0 0 20px rgba(284, 49, 44, 0);
-        -moz-box-shadow: 0 0 0 20px rgba(284, 49, 44, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
-        -moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
-    }
-    }
-
-#search {
-    position: absolute;
-    top: 100px;
-    left: 140px;
-    padding: 15px;
-    z-index: 10000;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    text-align: center;
-}
-
-#search_input {
-    border: none;
-}
-
-#search_input:focus{
-    outline: none;
-}
-</style>
 
 
 </head>
@@ -171,7 +26,7 @@
 
     
     <div id="body">
-   <div id="navbar">전국 수소충전소 위치 AI 서비스</div>
+   <div id="navbar">위치기반 로컬네비게이터 : HEY~ 툰즈!</div>
 
 <div id="infoBox">
     </span>
@@ -206,114 +61,9 @@
         
         </style>
         
-        <script type="text/javascript">
-        
-     
-        
-        var defaultMenuWidth="150px" 
-        
-        var linkset=new Array()
-    
-        
-        linkset[0]='<a href="https://www.google.co.kr/maps/@">근처 수소충전소<br>[지역별 시/도]</a>'
-        linkset[0]+='<hr>' 
-        linkset[0]+='<a href="https://www.google.co.kr/maps/@?se=on&q=%EC%84%9C%EC%9A%B8+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C&qfront=%EC%84%9C%EC%9A%B8+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C">서울특별시</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/@?se=on&q=%EB%B6%80%EC%82%B0+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C&qfront=%EB%B6%80%EC%82%B0+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C">부산광역시</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EB%8C%80%EA%B5%AC+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@35.1459371,128.9856763,17z/data=!3m1!4b1">대구광역시</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EC%9D%B8%EC%B2%9C+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@37.4820578,126.54323,11z/data=!3m1!4b1">인천광역시</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EB%8C%80%EC%A0%84+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@36.3678146,127.3329277,13z/data=!3m1!4b1">대전광역시</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EC%9A%B8%EC%82%B0+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@35.5224526,129.2592903,12z/data=!3m1!4b1">울산광역시</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EA%B2%BD%EA%B8%B0%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@37.3999252,126.6547469,9z/data=!3m1!4b1">경기도</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EA%B0%95%EC%9B%90%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@37.3999252,126.6547469,9z">강원도</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EC%B6%A9%EB%B6%81%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@37.3994624,126.6547368,9z">충청북도</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/@?se=on&q=%EC%B6%A9%EC%B2%AD%EB%82%A8%EB%8F%84+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C&qfront=%EC%B6%A9%EC%B2%AD%EB%82%A8%EB%8F%84+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C">충청남도</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@35.9107361,127.0320804,13z/data=!3m1!4b1">전라북도</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@35.9107361,127.0320804,13z">전라남도</a>'
-        linkset[0]+='<a href="https://www.google.co.kr/maps/search/%EC%A0%9C%EC%A3%BC%EB%8F%84+%EC%88%98%EC%86%8C%EC%B6%A9%EC%A0%84%EC%86%8C/@33.3883444,126.3072144,11z/data=!3m1!4b1">제주특별자치도</a>'
-
-        
-        
-        linkset[1]='<a href="https://terms.naver.com/entry.naver?docId=70405&cid=43667&categoryId=43667" target="_blank">수소연료전지차 지식백과</a>'
-        linkset[1]+='<hr>' 
-        linkset[1]+='<a href="https://terms.naver.com/entry.naver?docId=932962&cid=43667&categoryId=43667" target="_blank">수소차 작동 원리</a>'
-        linkset[1]+='<a href="https://www.hyundai.com/kr/ko/e/vehicles/type/eco" target="_blank">현대자동차 수소 차종 보기</a>'
-        linkset[1]+='<a href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjg1&pkid=128&os=17718280&qvt=0&query=2021%20%EB%84%A5%EC%8F%98%20%EB%AA%A8%EC%9D%98%EA%B2%AC%EC%A0%81" target="_blank">현대 넥쏘 모의 견적</a>'
-        
-        
-        var ie5=document.all && !window.opera
-        var ns6=document.getElementById
-        
-        if (ie5||ns6)
-        document.write('<div id="popitmenu" onMouseover="clearhidemenu();" onMouseout="dynamichide(event)"></div>')
-        
-        function iecompattest(){
-        return (document.compatMode && document.compatMode.indexOf("CSS")!=-1)? document.documentElement : document.body
-        }
-        
-        function showmenu(e, which, optWidth){
-        if (!document.all&&!document.getElementById)
-        return
-        clearhidemenu()
-        menuobj=ie5? document.all.popitmenu : document.getElementById("popitmenu")
-        menuobj.innerHTML=which
-        menuobj.style.width=(typeof optWidth!="undefined")? optWidth : defaultMenuWidth
-        menuobj.contentwidth=menuobj.offsetWidth
-        menuobj.contentheight=menuobj.offsetHeight
-        eventX=ie5? event.clientX : e.clientX
-        eventY=ie5? event.clientY : e.clientY
-     
-        var rightedge=ie5? iecompattest().clientWidth-eventX : window.innerWidth-eventX
-        var bottomedge=ie5? iecompattest().clientHeight-eventY : window.innerHeight-eventY
        
-        if (rightedge<menuobj.contentwidth)
-     
-        menuobj.style.left=ie5? iecompattest().scrollLeft+eventX-menuobj.contentwidth+"px" : window.pageXOffset+eventX-menuobj.contentwidth+"px"
-        else
-        
-        menuobj.style.left=ie5? iecompattest().scrollLeft+eventX+"px" : window.pageXOffset+eventX+"px"
-    
-        if (bottomedge<menuobj.contentheight)
-        menuobj.style.top=ie5? iecompattest().scrollTop+eventY-menuobj.contentheight+"px" : window.pageYOffset+eventY-menuobj.contentheight+"px"
-        else
-        menuobj.style.top=ie5? iecompattest().scrollTop+event.clientY+"px" : window.pageYOffset+eventY+"px"
-        menuobj.style.visibility="visible"
-        return false
-        }
-        
-        function contains_ns6(a, b) {
-   
-        while (b.parentNode)
-        if ((b = b.parentNode) == a)
-        return true;
-        return false;
-        }
-        
-        function hidemenu(){
-        if (window.menuobj)
-        menuobj.style.visibility="hidden"
-        }
-        
-        function dynamichide(e){
-        if (ie5&&!menuobj.contains(e.toElement))
-        hidemenu()
-        else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
-        hidemenu()
-        }
-        
-        function delayhidemenu(){
-        delayhide=setTimeout("hidemenu()",500)
-        }
-        
-        function clearhidemenu(){
-        if (window.delayhide)
-        clearTimeout(delayhide)
-        }
-        
-        if (ie5||ns6)
-        document.onclick=hidemenu
-        
-        </script>
-        
+
+
         
 
 
@@ -365,18 +115,18 @@
      <!-- 검색-->
 
      
-    <form name="jksearch" action="https://google.co.kr/maps/@" method="get" onSubmit="jksitesearch(this)">
+    <form name="jksearch" action="#" method="get" onSubmit="jksitesearch(this)">
         <table cellpadding=1>
         <tr>
             <td></td>
-            <td>수소충전소: <input name="se" type="radio" checked> </td>
+            <td>근처 맛집: <input name="se" type="radio" checked> </td>
             
         </tr>
         <tr>
             <td><B>검색어 : </B></td>
             <td>
 
-                <input id="hiddenquery" type="hidden" name="q"><input name="qfront" type="text" style="width: 200px" value="" placeholder="지역명 @서울 수소충전소">
+                <input id="hiddenquery" type="hidden" name="q"><input name="qfront" type="text" style="width: 200px" value="" placeholder="근처의 맛집을 찾아보세요.">
               
 
                 
@@ -391,7 +141,7 @@
         </form>
 
 
-
+<!-- 
         <script>
             $(function() {
                 $("input[type=submit]").click(function() {
@@ -401,7 +151,7 @@
                     }
                 })
             })
-        </script>
+        </script> -->
     
 
 
@@ -440,7 +190,10 @@
 
 <a href="#" onMouseover="showmenu(event,linkset[1], '180px')" onMouseout="delayhidemenu()">
 
+        
 <div id="current">현재 위치</div>
+
+
 
 </a>
 
@@ -1208,7 +961,7 @@ var mapOptions = {
        position: latlng,
        icon: {
           content: "<div class='marker'></div>",
-          anchor: new naver.maps.Point(12, 12)
+          anchor: new naver.maps.Point(12, 12),
         
        },
 
@@ -1240,7 +993,7 @@ $("#current").click(() => {
        icon: {
            content:
            '<img class="pulse" draggable="false" unselectable="on" src="https://myfirstmap.s3.ap-northeast-2.amazonaws.com/circle.png" >'
-         
+        
         },
 
     });
@@ -1306,8 +1059,8 @@ function placeSearchCB(data, status, pagination) {
 
 <center> 
 
-<a onClick="alert('안녕하세요. 전국 수소충전소 위치 AI 서비스 개발자 석진우 입니다. \n\n공공데이터를 활용하여 수소충전소 위치 등 \n 수소충전소 운영현황으로 수소 차 이용자들의 편의 증대 및 \n 수소 충전소 보급 현황 조회가 가능합니다.\n\n꾸준한 기능 추가 및 업데이트를 통해 항상 이용자들에게 \n편의를 제공하겠습니다.\n\n 건의 의견은 언제든지 적극 메일 주시기 바랍니다. \n\n 감사합니다. \n 개발자 석진우 드림')">서비스 소개</a> &nbsp;&nbsp;&nbsp;&nbsp;
- <a onClick="alert(' 대원대학교 멀티미디어학과 졸업\n 한양사이버대학교 컴퓨터공학과 전공')">개발자 프로필</a>
+<a onClick="alert('준비중 입니다.')">서비스 소개</a> &nbsp;&nbsp;&nbsp;&nbsp;
+ <a onClick="alert('주식회사 툰즈')">개발자 프로필</a>
 
 </center>
 
@@ -1317,10 +1070,10 @@ function placeSearchCB(data, status, pagination) {
 
 
     <br> <br>
-    개발자: 석 진우, E-mail: jwseok@kakao.com <br>
-    - 본 서비스는 환경 보호를 위해 졸업 준비로 만든 웹 서비스로, 정식 출시를 하였습니다. 많은 사랑 부탁드립니다.
+    개발자: 주식회사 툰즈, E-mail: toons2019@naver.com <br>
+    - 본 서비스는 베타 버전으로, 많은 사랑 부탁드립니다.
  
-    <br><br> copyright ⓒ JinWoo, Seok. All Rights Reserved. release,V.1.0.20220207. update,20220218
+    <br><br> copyright ⓒ toonsmakerspace. All Rights Reserved. release,V.1.0.20230208. update,20230208
     <br> <br> <br>
 
 
@@ -1352,5 +1105,157 @@ function placeSearchCB(data, status, pagination) {
 
     <!-- 개발자: 석진우 -->
     <!-- 개발자 이메일(피드백): tel.01063888391@gmail.com -->
+
+
+
+
+  <style>
+    body {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+#navbar {
+    height: 50px;
+    width: 100%;
+    background: #00004B;
+    color: white;
+    font-weight: bolder;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#infoBox {
+    position: absolute;
+    top: 100px;
+    z-index: 1000;
+    background: white;
+    left: 20px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    text-align: center;
+}
+
+#infoTitle {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.marker {
+    border: 2px solid #005E75;
+    background: #0090B7;
+    opacity: 0.8;
+    width: 24px;
+    height: 24px;
+    border-radius: 35%;
+}
+
+.infowindow_wrap {
+    background: white;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.infowindow_title {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.infowindow_content {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.infowindow_date {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+#current {
+    position: absolute;
+    top: 188px;
+    z-index: 10000;
+    background: white;
+    left: 28px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.pulse {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 58%;
+    cursor: pointer;
+    box-shadow: 0 0 0 rgb(255, 0, 0);
+    animation: pulse 1.7s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);
+        -moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(284, 49, 44, 0);
+        -moz-box-shadow: 0 0 0 20px rgba(284, 49, 44, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
+        -moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
+    }
+    }
+
+
+    @-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);
+        -moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(284, 49, 44, 0);
+        -moz-box-shadow: 0 0 0 20px rgba(284, 49, 44, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
+        -moz-box-shadow: 0 0 0 0 rgba(204, 49, 44, 0);
+    }
+    }
+
+#search {
+    position: absolute;
+    top: 100px;
+    left: 140px;
+    padding: 15px;
+    z-index: 10000;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    text-align: center;
+}
+
+#search_input {
+    border: none;
+}
+
+#search_input:focus{
+    outline: none;
+}
+
+
+  </style>
+
+
 </body>
 </html>
